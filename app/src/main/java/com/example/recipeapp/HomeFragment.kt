@@ -2,31 +2,23 @@ package com.example.recipeapp
 
 import android.content.ContentValues
 import android.content.ContentValues.TAG
-import android.content.Intent
-import android.nfc.Tag
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.SearchView
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.codingwithme.recipeapp.R
 import com.example.recipeapp.adapter.MainCategoryAdapter
 import com.example.recipeapp.adapter.SubCategoryAdapter
 import com.example.recipeapp.database.RecipeDatabase
 import com.example.recipeapp.entities.CategoryItems
-import com.example.recipeapp.entities.Meal
 import com.example.recipeapp.entities.MealsItems
-import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.home_fragment.*
 import kotlinx.coroutines.launch
 import java.util.*
-import java.util.stream.Collectors
 import kotlin.collections.ArrayList
 
 class HomeFragment : BaseFragment() {
@@ -77,7 +69,6 @@ class HomeFragment : BaseFragment() {
                 var tempArr = ArrayList<MealsItems>()
 
                 for (arr in arrSubCategory){
-                    Log.i(TAG, "ARRAY  ${tempArr}")
                     if (arr.strMeal!!.toLowerCase(Locale.getDefault()).contains(p0.toString())){
                         tempArr.add(arr)
                     }
@@ -129,13 +120,8 @@ class HomeFragment : BaseFragment() {
 
     private val onCLickedSubItem  = object : SubCategoryAdapter.OnItemClickListener{
         override fun onClicked(id: String) {
-            /*var intent = Intent(context, DetailFragment::class.java)
-            intent.putExtra("id",id)
-            startActivity(intent)*/
-
             var bundle = Bundle()
             bundle.putString("id", id)
-            Log.i(ContentValues.TAG, "ID SELECCIONADO: ${id}")
             var fragment: Fragment = DetailFragment.newInstance()
             fragment.arguments = bundle
 
