@@ -1,4 +1,4 @@
-package com.example.recipeapp
+package com.example.recipeapp.fragments
 
 import android.content.ContentValues
 import android.content.Intent

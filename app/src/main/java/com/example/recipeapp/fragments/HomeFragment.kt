@@ -1,9 +1,6 @@
-package com.example.recipeapp
+package com.example.recipeapp.fragments
 
-import android.content.ContentValues
-import android.content.ContentValues.TAG
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
